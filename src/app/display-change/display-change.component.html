@@ -1,0 +1,5 @@
+{{ available | currency: 'USD'}}
+
+<span class='change' [ngClass]='changeType'>
+  {{ changeType == 'pos'? '+':'' }}{{ percentChange | percent:'.2' }} / {{ absChange | currency: 'USD' }}
+</span>

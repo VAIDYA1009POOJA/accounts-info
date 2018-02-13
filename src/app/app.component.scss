@@ -1,0 +1,28 @@
+table {
+  background-color: white;
+  margin-top: 5px;
+}
+
+th {
+  background-color: #F7F7F7;
+  font-weight: normal;
+  border-bottom: 4px;
+  width: 50%;
+
+  .change-title {
+    display: block;
+    color: #777777;
+  }
+}
+
+.account-info {
+  font-weight: bold;
+  color: #1574B1;
+}
+
+.load-more {
+  cursor: pointer;
+  color: #1574b1;
+  line-height: 2.5em;
+  font-size: 1.2em;
+}

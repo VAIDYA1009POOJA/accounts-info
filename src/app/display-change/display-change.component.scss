@@ -1,0 +1,12 @@
+.change {
+  display: block;
+  color: #838383;
+
+  &.pos {
+    color: #33B057;
+  }
+
+  &.neg {
+    color: #FF2233;
+  }
+}
