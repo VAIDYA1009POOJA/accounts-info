@@ -21,7 +21,7 @@ export class FetchDataService {
 
   constructor(private http: HttpClient) {}
 
-  private url: string = 'http://localhost:3000/api/accounts';
+  private url: string = './assets/accounts.data';
 
   fetchAccounts(): Observable<Object> {
     return this.http.get(this.url);

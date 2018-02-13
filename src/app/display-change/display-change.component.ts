@@ -5,6 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './display-change.component.html',
   styleUrls: ['./display-change.component.scss']
 })
+
 export class DisplayChangeComponent implements OnInit {
   @Input() todayChange: number;
   @Input() available: number;

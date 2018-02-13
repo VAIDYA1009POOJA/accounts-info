@@ -6,6 +6,7 @@ import { FetchDataService, Accounts, Response } from './fetch-data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
 
   acc_list: Accounts[];
