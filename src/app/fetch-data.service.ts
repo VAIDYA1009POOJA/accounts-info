@@ -3,17 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 
 export interface Accounts {
-  _id      : string;
   acc_name : string;
   acc_num  : number;
   available: number;
   change   : number;
 }
 
-export interface Response {
-  status : number;
-  data   : Array<Accounts>;
-  message: string;
+export interface SortInfo {
+  sortCol: string;
+  sortOrder: string;
 }
 
 @Injectable()
@@ -22,8 +20,26 @@ export class FetchDataService {
   constructor(private http: HttpClient) {}
 
   private url: string = './assets/accounts.data';
+  private accounts: Accounts[] = [
+    {"acc_name":"AAA","acc_num":29,"available":39160334.42,"change":-31435.87},
+    {"acc_name":"AAA","acc_num":1812,"available":2010926.1,"change":38881.63},
+    {"acc_name":"AAA","acc_num":3810,"available":10050054.07,"change":8916.69},
+    {"acc_name":"IRA","acc_num":146,"available":15884302.39,"change":7430.83},
+    {"acc_name":"IRA","acc_num":5200,"available":5763.36,"change":-8916.69},
+    {"acc_name":"REG","acc_num":2019,"available":13465679.34,"change":0}
+  ];
 
-  fetchAccounts(): Observable<Object> {
-    return this.http.get(this.url);
+  fetchAccounts(info: SortInfo): Accounts[] {
+    return this.accounts.sort((a, b) => {
+      if (!a[info.sortCol]) {
+        return 0;
+      } else{
+        if (info.sortOrder === 'asc') {
+          return a[info.sortCol] - b[info.sortCol];
+        } else {
+          return b[info.sortCol] - a[info.sortCol];
+        }
+      }
+    });
   }
 }

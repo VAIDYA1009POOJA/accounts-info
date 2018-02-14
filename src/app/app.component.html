@@ -1,25 +1,25 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class='container'>
-  <table class='table'>
-    <thead>
+  <table class='table' appSortTable (sorted)='onSorted($event)'>
+    <thead class=''>
     <tr>
-      <th scope='col'>Account</th>
-      <th scope='col' class='text-right'>
+      <th scope='col' app-sort-column='acc_num'>Account</th>
+      <th scope='col' class='text-right' app-sort-column='available'>
         Available Cash
-        <span class='change-title'>Today's Change</span>
+        <span class='table-title'>Today's Change</span>
       </th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor='let account of acc_list | slice:0:limit'>
-      <td class='account-info'>
+      <td class='table-data'>
         {{account.acc_name}} - {{getAccountNumber(account.acc_num)}}
       </td>
       <td class='text-right'>
         <app-display-change [todayChange]='account.change' [available]='account.available'></app-display-change>
       </td>
     </tr>
-    <tr *ngIf='limit < acc_list.length' class='load-more text-center' (click)='setLimit()'>
+    <tr *ngIf='limit < acc_list.length' class='table-load text-center' (click)='setLimit()'>
       <td colspan="2">Load more</td>
     </tr>
     </tbody>

@@ -4,25 +4,31 @@ table {
 }
 
 th {
-  background-color: #F7F7F7;
+  background-color: whitesmoke;
   font-weight: normal;
   border-bottom: 4px;
   width: 50%;
 
-  .change-title {
+  .table-title {
     display: block;
     color: #777777;
   }
+
+  &[app-sort-column] {
+    cursor: pointer;
+    &.sorted {
+      background-color: #EFEFEF;
+    }
+  }
 }
 
-.account-info {
+.table-data {
   font-weight: bold;
   color: #1574B1;
+  padding-top: 25px;
 }
 
-.load-more {
+.table-load {
   cursor: pointer;
   color: #1574b1;
-  line-height: 2.5em;
-  font-size: 1.2em;
 }

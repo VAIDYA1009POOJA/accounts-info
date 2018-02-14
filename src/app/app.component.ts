@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FetchDataService, Accounts, Response } from './fetch-data.service';
+import { FetchDataService, Accounts, SortInfo } from './fetch-data.service';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +12,14 @@ export class AppComponent {
   acc_list: Accounts[];
   limit: number = 3;
 
-  constructor(private getData: FetchDataService) {
-    this.getData.fetchAccounts().subscribe(
-      (res: Response) => {
-        this.acc_list = res.data;
-      }
-    );
+  constructor(private fetchData: FetchDataService) {  }
+
+  ngOnInit() {
+    this.getData({ sortCol: '', sortOrder: 'asc'});
+  }
+
+  getData(info: SortInfo) {
+    this.acc_list = this.fetchData.fetchAccounts(info);
   }
 
   getAccountNumber(num: number) : string {
@@ -26,5 +28,10 @@ export class AppComponent {
 
   setLimit() {
     this.limit = this.acc_list.length;
+  }
+
+  onSorted($event) {
+    console.log($event);
+    this.getData($event);
   }
 }

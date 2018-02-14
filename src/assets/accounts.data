@@ -1,1 +1,6 @@
-{"status":200,"data":[{"_id":"5a81b2fd349b143ee1a18c1a","acc_name":"AAA","acc_num":29,"available":39160334.42,"change":-31435.87},{"_id":"5a81b550349b143ee1a18c1b","acc_name":"AAA","acc_num":1812,"available":2010926.1,"change":38881.63},{"_id":"5a81b581349b143ee1a18c1c","acc_name":"AAA","acc_num":3810,"available":10050054.07,"change":8916.69},{"_id":"5a81b5aa349b143ee1a18c1d","acc_name":"IRA","acc_num":146,"available":15884302.39,"change":7430.83},{"_id":"5a81b5da349b143ee1a18c1e","acc_name":"IRA","acc_num":5200,"available":5763.36,"change":-8916.69},{"_id":"5a81b65d349b143ee1a18c1f","acc_name":"REG","acc_num":2019,"available":13465679.34,"change":0}],"message":""}
+[{"acc_name":"AAA","acc_num":29,"available":39160334.42,"change":-31435.87},
+{"acc_name":"AAA","acc_num":1812,"available":2010926.1,"change":38881.63},
+{"acc_name":"AAA","acc_num":3810,"available":10050054.07,"change":8916.69},
+{"acc_name":"IRA","acc_num":146,"available":15884302.39,"change":7430.83},
+{"acc_name":"IRA","acc_num":5200,"available":5763.36,"change":-8916.69},
+{"acc_name":"REG","acc_num":2019,"available":13465679.34,"change":0}]
