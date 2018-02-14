@@ -8,7 +8,6 @@ import { FetchDataService, Accounts, SortInfo } from './fetch-data.service';
 })
 
 export class AppComponent implements OnInit {
-
   acc_list: Accounts[];
   limit: number = 3;
 
@@ -22,15 +21,7 @@ export class AppComponent implements OnInit {
     this.acc_list = this.fetchData.fetchAccounts(info);
   }
 
-  getAccountNumber(num: number) : string {
-    return ('000' + num).slice(-4);
-  }
-
-  setLimit() {
-    this.limit = this.acc_list.length;
-  }
-
-  onSorted($event) {
+  onColumnSorted($event: SortInfo) {
     console.log($event);
     this.getData($event);
   }

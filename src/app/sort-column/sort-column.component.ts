@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, EventEmitter, OnDestroy, HostListener, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, HostListener, HostBinding } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-
 import { SortService } from '../sort.service';
 
 @Component({
@@ -9,30 +8,27 @@ import { SortService } from '../sort.service';
   styleUrls: ['./sort-column.component.scss']
 })
 
-export class SortColumnComponent implements OnInit {
+export class SortColumnComponent implements OnInit, OnDestroy {
 
-  private colSortSubscribe: Subscription;
+  private colSortSubscription: Subscription;
 
   constructor(private sortService: SortService) { }
 
-  @Input('app-sort-column')
-  colName: string;
-
-  @Input()
+  @Input('app-sort-column') colName: string;
   sortOrder: string = '';
 
   @HostBinding('class.sorted') isSorted = false;
 
+
   @HostListener('click')
   sort() {
-    console.log('Here');
-    this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+    this.sortOrder = this.sortOrder === 'desc' ? 'asc' : 'desc';
     this.isSorted = true;
-    this.sortService.colSorted({ sortCol: this.colName, sortOrder: this.sortOrder});
+    this.sortService.nextColSorted({ sortCol: this.colName, sortOrder: this.sortOrder});
   }
 
   ngOnInit() {
-    this.colSortSubscribe = this.sortService.colSorted$.subscribe(event => {
+    this.colSortSubscription = this.sortService.colSortedObservable.subscribe(event => {
       if (this.colName != event.sortCol) {
         this.sortOrder = '';
         this.isSorted = false;
@@ -41,6 +37,6 @@ export class SortColumnComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.colSortSubscribe.unsubscribe();
+    this.colSortSubscription.unsubscribe();
   }
 }

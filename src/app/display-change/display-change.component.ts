@@ -23,6 +23,6 @@ export class DisplayChangeComponent implements OnInit {
       this.changeType = 'neg';
     } else if (this.todayChange > 0) {
       this.changeType = 'pos';
-    } else {}
+    }
   }
 }
