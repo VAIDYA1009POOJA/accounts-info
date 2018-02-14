@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { FetchDataService } from './fetch-data.service';
 import { SortService } from './sort.service';
 
@@ -18,8 +17,7 @@ import { SortTableDirective } from './sort-table.directive';
     SortTableDirective
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule
+    BrowserModule
   ],
   providers: [
     FetchDataService,

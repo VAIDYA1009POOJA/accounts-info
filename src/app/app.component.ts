@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FetchDataService, Accounts, SortInfo } from './fetch-data.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { FetchDataService, Accounts, SortInfo } from './fetch-data.service';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   acc_list: Accounts[];
   limit: number = 3;
